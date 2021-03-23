@@ -1,0 +1,27 @@
+ALGORITHM Checkpoint_algo_1
+VAR
+  sentence : STRING ;
+      i : INTEGER;
+      voys : INTEGER := 0;
+      words : INTEGER := 0;
+      chars : INTEGER := 0;
+      spaces : INTEGER := 0;
+BEGIN
+    REPEAT
+        Read(sentence)
+    UNTIL (sentence[sentence.length]==".")
+    FOR i FROM 0 TO sentence.length STEP 1  DO
+        chars++
+        IF (sentence[i]==" ") THEN
+            spaces++
+            words = spaces + 1
+        END_IF
+        IF (sentence[i] in ["a","e","u","i","y","o"]) THEN
+            voys++
+        END_IF
+    END_FOR
+    Write(words)
+    Write(voys)
+    Write(chars)
+END
+END
